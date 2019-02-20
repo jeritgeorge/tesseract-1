@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>tesseract_core</name>
   <version>0.1.0</version>
   <description>The tesseract_core package contains the core headers for environment</description>
@@ -10,13 +10,19 @@
 
   <author >Levi Armstrong</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <!--  This section includes depends for ROS1-->
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+
+  <!--  This section includes depends for ROS2-->
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+
+  <!--  This section includes depends that are for both ROS1 and ROS2-->
   <depend>tesseract_collision</depend>
   <depend>geometric_shapes</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <build_type condition="$ROS_VERSION == 1">catkin</build_type>
+    <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
   </export>
 </package>
