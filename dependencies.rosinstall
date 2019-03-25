@@ -2,3 +2,13 @@
     local-name: trajopt
     uri: https://github.com/ros-industrial-consortium/trajopt_ros.git
     version: kinetic-devel
+
+- git:
+    local-name: octomap_msgs
+    uri: https://github.com/AcutronicRobotics/octomap_msgs.git
+    version: ros2
+
+- git:
+    local-name: octomap
+    uri: https://github.com/AcutronicRobotics/octomap.git
+    version: ros2
